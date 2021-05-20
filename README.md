@@ -5,11 +5,13 @@ The evolution of the final project was based on the feedback received on my A4. 
 My A4 had a basic scrolly-telling interface and two visualizations. Both the visualizations were similar. They were multi line charts, one representing GDP and the other representing GDP-per capita. I had received points for implementing the scrolly telling however the visualizations were rated slightly below average. 
 
 From A4 to final project here are the changes and additions
-Changes
+
+##Changes
 1.	I removed one line graph where I was just plotting GDP of different countries. 
 2.	I almost completely changed the other line graph. This time, I used D3’s selection join functionality unlike the last time where I used to flush the svg element and replot everything. This has allowed for much smoother transitions and a much more seamless experience for the user. It has also allowed me more control over the transitions. When the user plots richest countries against India, the line of India drops down in the graph, producing the desired effect, i.e. a strong realization of how big the gap is between Indian people and some of the richest western countries. 
 
-Additions
+
+##Additions
 1.	I restructured the entire layout of the webpage/visualization. The old format straightaway jumped into a scrollytelling whereas the new employes the use of “Flex” containers to start with a landing page, then goes into scrolly telling, and then finally ends with the option of adding a martini glass visualization. (This was not possible in A4 structure)
 
 2.	Added a “parallax” feature in the first image which gives the user an impression of scrolling up above the front image
