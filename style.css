@@ -1,0 +1,522 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Kosugi&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Domine:400,700&display=swap');
+
+body {
+    background-color: rgb(245, 244, 241);
+    overflow-x: hidden;
+}
+
+
+.categoryLegend {
+    font-family: "Domine";
+}
+
+
+
+h1, h2 {
+    font-weight: 700;
+    text-align: right;
+    line-height: 32px;
+}
+
+h1 {
+    font-size: 35px;
+}
+
+strong {
+    color: rgb(245, 155, 155);
+}
+
+#graphic {
+  display:flex;
+  position: relative;
+    margin: auto;
+    width: 1500px;
+
+    flex-direction: row;
+    align-items: top;
+    justify-content: space-around;
+}
+
+#vis {
+    display: inline-block;
+    position: sticky;
+    top: 70px;
+    z-index: 1;
+    margin-left: 0;
+    /* height: 60%;
+    width: 60%; */
+    height: 1000px;
+    width: 1000px;
+}
+
+#graphic2 {
+  display:flex;
+  position: relative;
+    margin: auto;
+    width: 1500px;
+    flex-direction: row;
+    align-items: top;
+    justify-content: space-around;
+}
+
+#vis2 {
+    display: inline-block;
+    position: sticky;
+    top: 70px;
+    z-index: 1;
+    margin-left: 0;
+    height: 1000px;
+    width: 1000px;
+}
+
+.step {
+  margin-bottom: 100px;
+  height: 700px;
+  /* height: 60%;
+  width: 30%; */
+  font-family: "Domine";
+  font-weight: 400;
+  line-height: 1.4em;
+  text-align: justify;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-around; */
+}
+
+#sections {
+  position: relative;
+  display: inline-block;
+  width: 400px;
+  top: 60px;
+  z-index: 90;
+  margin-right: 50px;
+}
+
+
+
+.tick line {
+    stroke: 'red'
+}
+
+#tooltip {
+    position: absolute;
+    display: none;
+    background: rgba(0, 0, 0, .7);
+    border-radius: 3px;
+    box-shadow: -3px 3px 15px #939393;
+    color: white;
+    padding: 6px;
+    font-family: "Merriweather";
+    font-size: 1.1em;
+    max-width: 400px;
+    z-index: 100;
+}
+
+#tooltip2 {
+  position: absolute;
+  display: none;
+  background: rgba(0, 0, 0, .7);
+  border-radius: 3px;
+  box-shadow: -3px 3px 15px #939393;
+  color: white;
+  padding: 6px;
+  font-family: "Merriweather";
+  font-size: 1.1em;
+  max-width: 400px;
+  z-index: 100;
+}
+
+/* #tooltip {
+    position: absolute;
+    text-align: center;
+    width: auto;
+    height: auto;
+    padding: 2px;
+    font: 16px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+  } */
+
+svg circle:hover{
+    cursor: pointer;
+}
+
+.swatch {
+    fill: #939393;
+}
+
+.sizeLegend2 {
+    opacity: 0.7
+}
+
+a {
+    color: rgb(221, 0, 255);
+    text-decoration: none;
+}
+
+img {
+    display: none;
+}
+
+ .butt {
+    background-color: #939393;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .butt:hover {background-color: #FFA500} 
+
+  /* .otherbutt {
+    background-color: #939393;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  .otherbutt:hover {background-color: #228B22} */
+
+/* additions for barRace */
+text.yearText{
+    font-size: 64px;
+    font-weight: 700;
+    opacity: 0.25;
+  }
+
+  text{
+    font-size: 16px;
+    font-family: Open Sans, sans-serif;
+  }
+  text.title{
+    font-size: 24px;
+    font-weight: 500;
+  }
+    text.subTitle{
+      font-weight: 500;
+      fill: #777777;
+    }
+    text.caption{
+      font-weight: 400;
+      font-size: 14px;
+      fill: #777777;
+    }
+    text.label{
+      font-weight: 600;
+    }
+  
+    text.valueLabel{
+     font-weight: 300;
+    }
+
+    text.yearText{
+        font-size: 64px;
+        font-weight: 700;
+        opacity: 0.25;
+      }
+      .tick text {
+        fill: #777777;
+      }
+      .xAxis .tick:nth-child(2) text {
+        text-anchor: start;
+      }
+      .tick line {
+        shape-rendering: CrispEdges;
+        stroke: #dddddd;
+      }
+      .tick line.origin{
+        stroke: #aaaaaa;
+      }
+      path.domain{
+        display: none;
+      }
+
+
+      /* science and gdp */
+    
+      div.tooltip {
+        position: absolute;
+        text-align: center;
+        width: auto;
+        height: auto;
+        padding: 2px;
+        font: 12px sans-serif;
+        border: 0px;
+        border-radius: 8px;
+        pointer-events: none;
+      }
+  
+  
+      #legend span {
+        border: 1px solid #ccc;
+        float: left;
+        width: 12px;
+        height: 12px;
+        margin: 2px;
+      }
+  
+      .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+        width: 100%;
+      }
+  
+      .lastLabel {
+        float: right;
+      }
+  
+      .parallax {
+        /* The image used */
+        background-image: url("https://raw.githubusercontent.com/geetkalra/weblab/master/littleGirl.png");
+      
+        /* Set a specific height */
+        min-height: 50px;
+      
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% ;       
+      }
+
+      .parallaxinitial {
+        /* The image used */
+        /* https://www.flickr.com/photos/nestorlacle/24696779566/in/photostream/ */
+        /* https://raw.githubusercontent.com/geetkalra/weblab/master/localTrain.jpg */
+        background-image: url("https://raw.githubusercontent.com/geetkalra/weblab/master/nehruModi.png");
+      
+        /* Set a specific height */
+        min-height: 1000px;
+      
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% ;
+      }
+
+
+
+      /* ################ Top navigation  */
+      .navigation {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 39px;
+        background: #000;
+        border-bottom: solid 1px rgba(255,255,255,.3);
+        z-index: 20;
+      }
+      
+      .ios .navigation {
+        position: absolute;
+      }
+      
+      .navigation-logo {
+        float: left;
+        background: url(https://static01.nyt.com/newsgraphics/2013/10/13/russia/207ffeebeb08f93156b7a4be9b0c17863de3143a/icons.png) -6px -6px;
+        height: 17px;
+        margin: 11px 0 0 30px;
+        width: 128px;
+      }
+      
+      .navigation-title {
+        border-left: 1px solid #444;
+        color: #e2e2e2;
+        float: left;
+        font: 200 11px/20px "nyt-cheltenham", georgia, serif;
+        height: 20px;
+        letter-spacing: 1px;
+        margin: 11px 2px 0 15px;
+        padding-left: 15px;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+      
+      .navigation-title:hover {
+        text-decoration: underline;
+      }
+      
+      .navigation-share {
+        position: absolute;
+        right: 2%;
+      }
+      
+      .navigation-share a {
+        display: inline-block;
+        padding: 11px 5px;
+      }
+      
+      .navigation-share-icon {
+        width: 18px;
+        height: 18px;
+        background-image: url(https://static01.nyt.com/newsgraphics/2013/10/13/russia/207ffeebeb08f93156b7a4be9b0c17863de3143a/icons.png);
+      }
+      
+      .navigation-share-twitter .navigation-share-icon { background-position: -6px -28px; }
+      .navigation-share-twitter:hover .navigation-share-icon { background-position: -6px -48px; }
+      .navigation-share-facebook .navigation-share-icon { background-position: -26px -28px; }
+      .navigation-share-facebook:hover .navigation-share-icon { background-position: -26px -48px; }
+      .navigation-share-email .navigation-share-icon { background-position: -28px -68px; width: 22px; }
+      .navigation-share-email:hover .navigation-share-icon { background-position: -5px -68px; }
+      
+      @media screen and (max-device-width: 320px) and (orientation: portrait) {
+        .navigation {
+          height: 60px;
+          font-size: 2em;
+          background-color: rgba(0,0,0,0.3);
+        }
+      
+        .navigation-share,
+        .navigation-title {
+          display: none;
+        }
+      
+        .navigation-logo {
+          margin: 0 auto;
+          text-align: center;
+          float: none;
+          display: block;
+          background-image: url(https://static01.nyt.com/newsgraphics/2013/10/13/russia/207ffeebeb08f93156b7a4be9b0c17863de3143a/nyt-logo.svg);
+          background-size: contain;
+          background-position: center center;
+          background-repeat: no-repeat;
+          width: 260px;
+          height: 100%;
+        }
+      
+      }
+
+      /* ###################################################################################################India MAP */
+      .mapPath {
+        stroke: white;
+        stroke-width: 0.6px;
+        fill: grey;
+    }
+
+    div.tooltip_map {
+      position: absolute;
+      text-align: center;
+      /* padding: 0.5em; */
+      padding: 6px;
+      font-size: 20px;
+      color: #222;
+      background: #FFF;
+      background: rgba(0, 0, 0, .7);
+      border-radius: 2px;
+      box-shadow: -3px 3px 15px #939393;
+      pointer-events: none;
+      box-shadow: 0px 0px 2px 0px #a6a6a6;
+      z-index: 100;
+    }
+
+    /* div.tooltip_map {
+      position: absolute;
+      display: none;
+      background: rgba(0, 0, 0, .7);
+      border-radius: 3px;
+      box-shadow: -3px 3px 15px #939393;
+      color: #222;
+      padding: 6px;
+      font-family: "Merriweather";
+      font-size: 1.1em;
+      max-width: 400px;
+      z-index: 100;
+  } */
+
+  /* ############pie chart */
+  path.slice{
+    stroke-width:2px;
+  }
+  
+  polyline{
+    opacity: .3;
+    stroke: black;
+    stroke-width: 2px;
+    fill: none;
+  }
+
+
+  /* ////////HEAD SECTION /////// */
+  .head-section {
+    font: 200 60px "nyt-cheltenham";
+    text-shadow: 0 1px 0 #000;
+    padding: 0;
+    background-color: #111;
+    background-image: url(https://static01.nyt.com/newsgraphics/2013/10/13/russia/assets/large/header.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  .head--text {
+    bottom: 8%;
+    color: black;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    text-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
+  }
+  
+  .head-summary {
+    font-size: 26px;
+    max-width: 640px;
+    margin: 5px auto 15px;
+  }
+  
+  .head-by {
+    font-family: "nyt-franklin";
+    font-size: 12px;
+    margin: 10px 0;
+    opacity: 0.8;
+    color: black;
+  }
+  .head-by-main {
+    font-size: 14px;
+    opacity: 1;
+    margin: 20px 0 15px;
+  }
+  
+  .head-by-author {
+    text-transform: uppercase;
+  }
+  
+  @media screen and (max-device-width: 320px) and (orientation: portrait) {
+    .head-section {
+      font-size: 70px;
+    }
+  
+    .head--text {
+      bottom: 40px;
+    }
+  
+    .head-summary {
+      font-size: 40px;
+      width: 80%;
+      margin: 10px auto;
+    }
+  
+    .head-by-main {
+      font-size: 30px;
+      opacity: 1;
+    }
+  
+    .head-by {
+      font-size: 17px;
+      width: 70%;
+      margin: 10px auto 0;
+    }
+  }
+  

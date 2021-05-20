@@ -1,0 +1,253 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!-- <script src="https://d3js.org/d3.v6.js"></script> -->
+    <script src = 'https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js'></script>
+    
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <!-- ##India Map -->
+    <script type="text/javascript" src="d3.geo.min.js"></script>
+
+
+    <meta property='og:title' content='India Economic history'/>
+    <meta property='og:image' content='https://github.com/cuthchow/college-majors-visualisation/blob/master/preview.png'/>
+    <meta property='og:description' content='Animated and interactive datasets to understand economic history of India'/>
+    <meta property='og:url' content='https://cuthchow.github.io/college-majors-visualisation/'/>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <title>India Growth Story</title>
+</head>
+
+<!-- style="background-color:grey;" -->
+<body style="background-color:white;">
+    <style>
+
+        /* .axis--x path {
+          display: none;
+        } */
+        .axis {font: 18px sans-serif;};
+        .overlay {
+          fill: none;
+          pointer-events: all;
+        }
+        
+        .focus circle {
+          fill: none;
+          stroke: steelblue;
+        }
+        
+        .line {
+          fill: none;
+          stroke: steelblue;
+          stroke-width: 5.5px;
+        }
+     
+        </style>
+
+
+
+
+    <!-- <div id="info">
+        a
+    </div> -->
+    <img src="https://raw.githubusercontent.com/6859-sp21/a4-worldbankdata/main/nehruModi.png" alt="">
+    
+    <div class="parallaxinitial" >
+
+        <!-- https://www.flickr.com/photos/nestorlacle/24696779566/in/photostream/ -->
+        <!-- https://creativecommons.org/licenses/by/2.0/ -->
+
+    </div>
+    <div id="tooltip"></div>
+     <div id="tooltip2"></div>
+    <div class="navigation">
+        <!-- <a class="navigation-logo" href="https://www.nytimes.com/" alt="The New York Times"></a> -->
+        <a href="#" class="navigation-title">You might need to reduce screen zoom to 80% (macbook air) for best viewing experience</a>
+        <div class="navigation-share">
+          <!-- <a href="#" class="navigation-share-facebook"><div class="navigation-share-icon"></div></a> -->
+          <!-- <a href="#" class="navigation-share-twitter"><div class="navigation-share-icon"></div></a> -->
+          <!-- <a href="https://www.nytimes.com/mem/email-this.html?url=https://www.nytimes.com/newsgraphics/2013/10/13/russia/" target="_blank" class="navigation-share-email"><div class="navigation-share-icon"></div></a> -->
+        </div>
+      </div>
+
+      <div class="head-section">
+        <div class="text head--text">
+          India's growth story
+          <div class="head-summary">We look over the economic growth of India from its first Prime minister (Jawaharlal Nehru, on left) to the current (Narendra Modi, on right)</div>
+          
+          <div class="head-by head-by-main">By <span class="head-by-author">Geet Kalra</span></div>
+          <div></div>
+        </div>
+      </div>
+
+    <section class ="scrollersections">
+    <section id="graphic">
+        <section id="vis">
+            
+        </section>
+        <section id="sections">
+            
+            <section class="step">
+                <section class="title"></section>
+                <br><br><br><br><br><br>
+                <h1>The early 90s were a period of rapid change for the Indian economy. Liberalization helped save the country from a severe recession. India has come a long way since. However, is the growth good enough?  </h1>
+                <p><br>
+                    The image on the left is of India's Ex- Prime Minister, Manmohan Singh, one of the pioneers of the economic policies of early 90s
+                    <br></p><p><br><br><br><br><br><br><br><br><br><br></p>
+            </section>
+
+            <section class="step">
+                <br><br><br><br>
+                <h2>After the reforms, India as a nation has made rapid progress in terms of its GDP and <p style="color:red;">ranks #6</p> in terms of economy in the world (2019)</h2>
+                <h3>Only India and China have been highlighted to show that both the economies were in a similar situation in the 80s. It is interesting to see how both neighbours  have progressed.</h3>
+                <p>
+                    <br><br><br><br>
+                     <p id="yearSelect2"><b>Select year:</b> <span id="yearSelected2"></span></p>
+                     <div id="yearForSlider2"></div>
+                     1960<span class="lastLabel">2019</span>
+                <br><br></p><p> <br><br></p>               
+            </section>
+            <section class="step">
+                
+                <h2> However, India still <p style="color:red;">ranks #143</p> in terms of GDP per capita (US $, 2019)</h2> 
+                Looking at this curve, it doesn't seem so, right ?
+                Play with some of the buttons to see for yourself!
+
+                GDP per capita exposes the division of wealth amongst Indian people and highlights the stark divide that exists between rich and poor.* <br><br>
+                 <br>
+                 <br>
+                 <button id="lowerten", class = "butt">India Vs Poorest</button>
+                 <button id="topten", class = "butt">India Vs richest</button>
+                 <br>
+                 <select id="selectButton", size="10">select from here</select>
+                 <button id="add-btn", class = "butt">Compare with India</button>
+                 <button id="replay", class = "butt">Refresh !</button>
+                 <h4>(Hover to see details; To remove line, click on the country name.Browser's search can be used to locate countries in this list)</h4>
+                <h5>*Zero values indicate missing data</h5>
+                <br><br>
+                <br><br>
+                <p> <br><br></p> <p> <br><br></p> <p> <br><br></p> <p> <br><br></p> 
+            </section>
+
+            <section class="step">
+                <br><br>
+                <br><br>
+                <h1>We see the affect of various parameters on the GDP of a country</h1>
+                <h3>Again, China and India hasve been highlighted for a quick comparison</h3>
+                <h4>Select year</h4>
+                
+                <p id="yearSelect"><b>Select year:</b> <span id="yearSelected"></span></p>
+                <div id="yearForSlider"></div>
+                1970<span class="lastLabel">2016</span>
+
+
+                <h4>See effect of following variables on GDP</h4>
+                <select name="yVar" id="yVar" data-live-search="true" data-live-search-style="contains"
+                  class="selectpicker"></select>
+                  <br><br>
+                </p>
+                <p>
+                    <br><br>
+                </p>
+                <span></span><span></span><span></span>
+            </section>
+
+            <section class="step">
+                <br><br>
+                <br><br>
+                <h1>Now we see how each state fares in terms of contribution to GDP as well as the sectors which contribute to the states domestic product</h1>
+                <h3>Hover on a state to see exact value of States GDP in 2012-2013 and Click on a state to see the pie chart update for the state</h3>
+                <p>
+                    <br><br>
+                     <br><br>
+
+                
+                
+                    <br><br>
+                </p>
+                <span></span><span></span><span></span>                
+            </section>
+            <section class="step">
+             
+                <h1>The End</h1>
+                <p>
+                    <br><br>
+                    We see that even though India as a country is compared to the richest countries of the world,
+                    Indian people can be compared to the poorest people of the world. 
+                    Comparing just GDP and GDP per capita allowed us to see this. <br><br>
+
+                <br><br>
+                
+                
+                </p>
+                <p>
+                 
+                    A big thanks to <a href = 'https://github.com/cuthchow/college-majors-visualisation'>Cuthbert Chow</a> for publicly sharing the code for the scroller
+                    and writing a   <a href = 'https://towardsdatascience.com/how-i-created-an-interactive-scrolling-visualisation-with-d3-js-and-how-you-can-too-e116372e2c73'>great article </a>to go with it.
+                    <p>Datasets by <a href = 'https://data.worldbank.org/indicator/NY.GDP.MKTP.KD'>World Bank</a></p>
+                    <p><a href ='https://statisticstimes.com/economy/sectorwise-gdp-of-indian-states.php'>Datasets</a> for state-wise gdp distribution </p>
+                    All images were taken from the internet and are under a creative commons license. 
+                     
+                    <a href =' https://www.flickr.com/photos/worldeconomicforum/4085348534 '>1</a>
+                    <a href ='https://www.wallpaperuse.com/vien/ooxoRh/'>2</a>
+                    <a href ='https://pixy.org/5912282/'>3</a>
+                    <a href ='https://commons.wikimedia.org/wiki/File:India-flag.svg'>4</a>
+
+
+                    <br><br>
+                </p>
+                <span></span><span></span><span></span>                
+            </section>
+        
+            <section class="step"></section>
+        </section>
+       
+ 
+    </section>
+</section>
+
+    <!-- <section >
+    
+        
+        
+        <div style="background-image: url('https://raw.githubusercontent.com/geetkalra/weblab/master/littleGirl.png');
+        background-size: cover; height:900px; padding-top:0px;">
+    
+
+   
+        
+        
+    </section> -->
+
+    
+    <script src = 'scroller.js'></script>
+    <script src = 'sections.js'></script>
+    <script src = "gdp.js"></script>
+    <script src = "gdp2ndViz.js"></script>
+    <script src = "modiji.js"></script>
+    <script src = "manmohanji.js"></script>
+    <script src = "indiaMap.js"></script>
+    <script src = "littleGirl.js"></script>
+    <script src = "littleGirl_vis2.js"></script>
+    <script src = "indiaVchina.js"></script>
+    <script src="multichart.js"></script>
+    <script src="barRace.js"></script>
+    <script src="gdpScience.js"></script>
+    <script src="gdpScience_abhi.js"></script>
+    <script src="multichart_GDP.js"></script>
+    <script src="indiaMap_stateGDP.js"></script>
+    
+
+    <!-- <script src="multichart.js"></script> -->
+    <!-- <script src ="multichart_multicountries"></script> -->
+
+</body>
+</html>
